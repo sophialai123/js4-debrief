@@ -1,21 +1,27 @@
 // BASIC SYNTAX
 // Selectors: 
-let elementName = document.querySelector("#elementId")
-// Functions
-function functionName() {
-  // do something here
- 
-}
-// Call the event with an event listener
-elementName.addEventListener("onclick", functionName);
+// let elementName = document.querySelector("#elementId")
+// // Functions
+// function functionName() {
+//   // do something here
+
+// }
+// // Call the event with an event listener
+// elementName.addEventListener("onclick", functionName);
 
 // 1. DISPLAY NAME
 // Click the button to display your name in the box
 // (Tip: in this example, you will hard code your name within the JavaScript function, rather than use the input box to grab it).
 
+
 // Selectors
+const clickMeButton = document.querySelector("#btnName");
+clickMeButton.addEventListener('click', clickMeFunction)
 
 // Function
+function clickMeFunction() {
+  document.getElementById("myName").value = "Sophia";
+}
 
 // Call the event
 
@@ -25,53 +31,125 @@ elementName.addEventListener("onclick", functionName);
 
 // Selectors
 
-// Function
+const imageOff = document.querySelector("#imageOff")
+
+
+imageOff.addEventListener('mouseover', () => {
+  imageOff.src = './images/lighton.png';
+  imageOff.addEventListener('mouseout', () => {
+    imageOff.src = "./images/lightoff.png";
+  })
+})
+
 
 // Call the event
 
 // 3. Double click button to display content
 // Selectors
+const doubleClickButton = document.querySelector("#btndbName");
+const displayContent = document.getElementById('displayPara');
 
-/* Function {
-  //some code here
+function doubleClickFuction() {
+
+  //display content:
+  displayContent.innerHTML = "You double clicked me";
+  displayContent.style.color = "lightblue";
   //create a new img element
-}*/
+  let newImage = document.createElement('img');
+  newImage.src = './images/smileyface.png';
+
+  //add a class name for the image
+  newImage.classList.add('imgClass');
+  displayContent.appendChild(newImage);
+}
+
 
 // Call the event
+doubleClickButton.addEventListener('dblclick', doubleClickFuction)
 
 // 4. Traffic Lights
 // Selectors
+const stopButton = document.getElementById('btnStop');
+const readyButton = document.getElementById("btnReady");
+const goButton = document.getElementById('btnGo')
 
-// Function 1
-// Function 2
-// Function 3
 
-// Call the events
+// Call the events:
+stopButton.addEventListener("click", () => {
+  document.getElementById('stopDiv').style.backgroundColor = "red";
+})
+
+readyButton.addEventListener("click", () => {
+  document.getElementById("readyDiv").style.backgroundColor = "yellow";
+  document.getElementById('stopDiv').style.backgroundColor = " black";
+})
+
+goButton.addEventListener("click", () => {
+  document.getElementById('goDiv').style.backgroundColor = "green";
+  document.getElementById("readyDiv").style.backgroundColor = "black";
+})
+
+
 
 // 5. Change textbox border colours
 // Selectors
+const changeBorderColor = document.querySelector("#btn2Name");
 
-// Function
+changeBorderColor.addEventListener("click", () => {
+  document.getElementById('firstName').style.borderColor = "red";
+  document.getElementById('lastName').style.borderColor = "green";
 
-// Call the event
+})
+
+
 
 // 6. Validate the input [length should be more than 5 characters]
 // Selectors
 
-/*Function {
-  //if statement
-}*/
+const submitButton = document.getElementById("btnSub2");
 
-// Call the event
+submitButton.addEventListener("click", (event) => {
+  if (event.target.value < 8 || event.target.value === "" || event.target.value === null) {
+    confirm("Please enter more than 8 charaters")
+  }
+
+  if (event.target.value > 8) {
+    alert('Thank you');
+  }
+})
+
+
+
 
 // 7.create a list of hobbies
 // Selectors
+
+const hobbyButton = document.getElementById('btnHobbies');
+const promptBox = document.getElementById('hobbies');
+
+hobbyButton.addEventListener("click", () => {
+  //create a promt box
+  let listItmes = prompt("Enter your hobbies")
+  //create a list
+  let createHobbyList = document.createElement("li");
+  //get the promt value
+  let textContent = document.createTextNode(listItmes)
+  //append the list items
+  createHobbyList.appendChild(textContent)
+  //display on the section 
+  promptBox.appendChild(createHobbyList)
+})
+
+
 
 /*Function {
   //for loop
 }*/
 
 // Call the event
+
+
+
 
 // 8. Display a profile card from an object
 //Object

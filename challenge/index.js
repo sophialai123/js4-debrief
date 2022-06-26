@@ -5,8 +5,36 @@
 
 // Selectors
 
+const addNewItems = document.getElementById('button');
+const myList = document.getElementById('list');
+
 // Iterate the ul items
 
 // Event Listener - Click the item change the heading
 
 // Event Listener - Click the button add a new item
+addNewItems.addEventListener("click", (event) => {
+
+  //create new list items
+  let newListItems = document.createElement('li');
+
+  let newInput = document.createElement('input');
+
+  //add text to the list
+  newListItems.textContent = "new ";
+
+  //append the listText to the myList
+  myList.appendChild(newListItems)
+
+
+
+
+
+
+  // let newInputValue = event.target.value;
+  // let createText = document.createTextNode(newInputValue)
+  // newList.append(createText);
+  // document.getElementById('list').appendChild(newList);
+
+})
+
