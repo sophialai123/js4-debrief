@@ -103,22 +103,24 @@ changeBorderColor.addEventListener("click", () => {
 
 
 
-// 6. Validate the input [length should be more than 5 characters]
+// 6. Validate the input [length should be more than 8 characters]
 // Selectors
 
 const submitButton = document.getElementById("btnSub2");
+const inputValue = document.getElementById('myName2')
 
 submitButton.addEventListener("click", (event) => {
-  if (event.target.value < 8 || event.target.value === "" || event.target.value === null) {
-    confirm("Please enter more than 8 charaters")
+  if (inputValue.value.length < 8 || inputValue.value === "" || inputValue.value === null) {
+
+    //display error message
+    const errMsg = document.getElementById('errMsg');
+    errMsg.innerHTML = 'length should be more than 8 characters';
+    errMsg.style.color = "red";
+  } else {
+    submitButton.submit();
   }
 
-  if (event.target.value > 8) {
-    alert('Thank you');
-  }
 })
-
-
 
 
 // 7.create a list of hobbies
@@ -154,9 +156,36 @@ hobbyButton.addEventListener("click", () => {
 // 8. Display a profile card from an object
 //Object
 
+//create a new img element
+let newImg = document.createElement('img');
+newImg.src = './images/face.jpg';
+newImg.classList.add("newImg")
+
+
+const displayInfor = {
+  name: "Sophia",
+  role: "Develpoer",
+  hobbies: ['travel', 'moives'],
+  img: newImg,
+}
+
 // Selectors
 
-/*Function {
-    //for loop
-      //if statement
-  }*/
+const displayButton = document.getElementById('btnProfile');
+
+const displayCard = document.getElementById('displayCard');
+
+
+displayButton.addEventListener("click", () => {
+
+  for (const key in displayInfor) {
+
+    // let values = [];
+    // values.push(displayInfor[key]);
+    // console.log(values)
+    displayCard.append(displayInfor[key]);
+
+  }
+
+})
+

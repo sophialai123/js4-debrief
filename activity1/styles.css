@@ -4,8 +4,9 @@
   /* background-color: rgb(233, 57, 57); */
 }
 
-.flex-container > div {
-  flex: 1 0 21%; /* 4 flex boxes per row */
+.flex-container>div {
+  flex: 1 0 21%;
+  /* 4 flex boxes per row */
   background-color: #f1f1f1df;
   width: 100px;
   margin: 10px;
@@ -21,6 +22,7 @@
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
 .lights {
   background: black;
   border-radius: 50%;
@@ -28,4 +30,8 @@
   height: 60px;
   margin: auto;
   margin-top: 5px;
+}
+
+.values {
+  padding: 10px;
 }
