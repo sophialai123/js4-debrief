@@ -107,19 +107,19 @@ changeBorderColor.addEventListener("click", () => {
 // Selectors
 
 const submitButton = document.getElementById("btnSub2");
-const inputValue = document.getElementById('myName2')
+const inputValue = document.getElementById('myName2');
+const errMsg = document.getElementById('errMsg');
 
 submitButton.addEventListener("click", (event) => {
   if (inputValue.value.length < 8 || inputValue.value === "" || inputValue.value === null) {
-
     //display error message
-    const errMsg = document.getElementById('errMsg');
     errMsg.innerHTML = 'length should be more than 8 characters';
     errMsg.style.color = "red";
+    inputValue.focus()
   } else {
-    submitButton.submit();
+    errMsg.innerHTML = "All good";
+    errMsg.style.color = "";
   }
-
 })
 
 
@@ -129,7 +129,21 @@ submitButton.addEventListener("click", (event) => {
 const hobbyButton = document.getElementById('btnHobbies');
 const promptBox = document.getElementById('hobbies');
 
-hobbyButton.addEventListener("click", () => {
+hobbyButton.addEventListener("click", generateList)
+
+function generateList() {
+  let hobbiesList = document.querySelector("#hobbies > ul");
+  for (let i = 0; i <= 3; i++) {
+    let hobbies = prompt("What are you hobbies?");
+    let li = document.createElement("li");
+    li.innerHTML = hobbies;
+    hobbiesList.appendChild(li);
+  }
+}
+
+
+
+/* function createList(){
   //create a promt box
   let listItmes = prompt("Enter your hobbies")
   //create a list
@@ -140,13 +154,7 @@ hobbyButton.addEventListener("click", () => {
   createHobbyList.appendChild(textContent)
   //display on the section 
   promptBox.appendChild(createHobbyList)
-})
-
-
-
-/*Function {
-  //for loop
-}*/
+} */
 
 // Call the event
 
